@@ -32,7 +32,8 @@ def create_parser():
     parser.add_argument(
         '-p', '--excel_file_path',
         env_var='WINE_EXCEL_PATH',
-        default='wine3.xlsx'
+        default='wine3.xlsx',
+        type=str
     )
 
     return parser
