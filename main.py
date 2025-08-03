@@ -56,7 +56,13 @@ def main():
     sorted_wines_by_category = collections.defaultdict(list)
 
     for category in sorted_wines_df.to_dict(orient='records'):
-        sorted_wines_by_category[category['Категория']].append(category)
+        if category['Категория'] != '':
+            sorted_wines_by_category[category['Категория']].append(category)
+
+    for category in sorted_wines_df.to_dict(orient='records'):
+        if category['Категория'] == '':
+            category['Категория'] = 'Другое'
+            sorted_wines_by_category[category['Категория']].append(category)
 
     groups_of_wines = []
     for group in sorted_wines_by_category.values():
