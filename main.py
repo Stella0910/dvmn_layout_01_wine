@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import datetime
 import collections
 import pandas
+from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -33,7 +34,7 @@ def create_parser():
         '-p', '--excel_file_path',
         env_var='WINE_EXCEL_PATH',
         default='wine3.xlsx',
-        type=str
+        type=Path
     )
 
     return parser
