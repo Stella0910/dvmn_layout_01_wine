@@ -115,7 +115,6 @@
         </div>
         <div class="row">
           {% for category in sorted_wines_by_category %}
-          {% if category %}
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">{{category}}</h2>
           </div>
@@ -145,40 +144,6 @@
               </div>
             {% endif %}
             {% endfor %}
-          {% endif %}
-          {% endfor %}
-          {% for category in sorted_wines_by_category %}
-          {% if not category %}
-          <div class="col-12 section-title text-center mb-5">
-            <h2 class="d-block">Другое</h2>
-          </div>
-            {% for group in groups_of_wines %}
-            {% if category ==  group.Категория %}
-              <div class="col-lg-4 mb-5 col-md-6">
-                <div class="wine_v_1 text-center pb-4 pt-5">
-                  {% if group.Картинка %}
-                  <img src="images/{{group.Картинка}}" alt="Image" class="img-fluid">
-                  {% else %}
-                  <img src="https://dvmn.org/filer/canonical/1569944855/354/" alt="Image" class="img-fluid">
-                  {% endif %}
-                  {% if group.Акция %}
-                  <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-                  {% endif %}
-                  <div>
-                    <h3 class="heading mt-3 mb-3 text-dark">{{group.Название}}</h3>
-                    <p>
-                      {% if group.Сорт %}
-                      Сорт винограда - {{group.Сорт}}<br/>
-                      {% else %}
-                      {% endif %}
-                      <span class="price">{{group.Цена}} р.</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-            {% endfor %}
-          {% endif %}
           {% endfor %}
         </div>
       </div>
